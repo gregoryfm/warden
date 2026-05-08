@@ -32,6 +32,29 @@ npx @sentry/warden
 npx @sentry/warden --fix
 ```
 
+### Runtime
+
+Warden uses Claude by default. For local runs, authenticate with Claude Code or
+set `WARDEN_ANTHROPIC_API_KEY`.
+
+To use a local Codex subscription instead, initialize with the Codex runtime:
+
+```bash
+npx @sentry/warden init --runtime codex
+codex login
+npx @sentry/warden --no-color
+```
+
+That writes this default into `warden.toml`:
+
+```toml
+[defaults]
+runtime = "codex"
+```
+
+You can also set `WARDEN_OPENAI_API_KEY` for Codex runs when you prefer API key
+authentication.
+
 **[Read the full documentation →](https://warden.sentry.dev/)**
 
 ## Contributing
